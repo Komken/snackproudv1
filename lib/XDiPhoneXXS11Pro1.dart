@@ -23,19 +23,20 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
+          //Background
           Transform.translate(
-            offset: Offset(29.0, 209.0),
+            offset: Offset(screenWidth / 20, screenHeight / 5),
             child:
                 // Adobe XD layer: 'BackGround' (component)
                 SizedBox(
-              width: 320.0,
-              height: 576.0,
+              width: screenWidth / 1.11,
+              height: screenHeight / 1.25,
               child: XDBackGround(),
             ),
           ),
+          //Logo
           Transform.translate(
-            offset:
-                Offset(queryData.size.width / 2.5, queryData.size.height / 25),
+            offset: Offset(screenWidth / 2.5, screenHeight / 20),
             child:
                 // Adobe XD layer: 'snack_proud_snack_p…' (shape)
                 Container(
