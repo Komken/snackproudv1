@@ -1,8 +1,13 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro2.dart';
 import 'package:adobe_xd/page_link.dart';
 import './XDiPhoneXXS11Pro3.dart';
+import 'package:flutter/widgets.dart';
+
+MediaQueryData queryData;
 
 class XDiPhoneXXS11Pro1 extends StatelessWidget {
   XDiPhoneXXS11Pro1({
@@ -10,6 +15,10 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    queryData = MediaQuery.of(context);
+    var screenWidth = queryData.size.width;
+    var screenHeight = queryData.size.height;
+
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
@@ -25,12 +34,13 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: Offset(101.0, 52.0),
+            offset:
+                Offset(queryData.size.width / 2.5, queryData.size.height / 25),
             child:
                 // Adobe XD layer: 'snack_proud_snack_p…' (shape)
                 Container(
-              width: 173.0,
-              height: 140.0,
+              width: screenWidth / 10,
+              height: screenHeight / 10,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/logo.jpg'),
