@@ -39,7 +39,7 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
                 height: 140.0,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: const AssetImage('assets/images/logo.jpg'),
+                    image: AssetImage('assets/images/logo.png'),
                     fit: BoxFit.fill,
                   ),
                 ),

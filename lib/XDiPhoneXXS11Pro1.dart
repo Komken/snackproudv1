@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro2.dart';
@@ -44,7 +42,7 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               height: screenHeight / 10,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('images/logo.png'),
+                  image: AssetImage('assets/images/logo.png'),
                   fit: BoxFit.fill,
                 ),
               ),
