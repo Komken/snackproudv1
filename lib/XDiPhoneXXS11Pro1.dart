@@ -14,8 +14,10 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     queryData = MediaQuery.of(context);
-    var screenWidth = queryData.size.width;
-    var screenHeight = queryData.size.height;
+    double screenWidth = queryData.size.width;
+    double screenHeight = queryData.size.height;
+    double blockSizeWidth = screenWidth / 100;
+    double blockSizeHeight = screenHeight / 100;
 
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
@@ -23,23 +25,23 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
         children: <Widget>[
           //Background
           Transform.translate(
-            offset: Offset(screenWidth / 20, screenHeight / 5),
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 15),
             child:
                 // Adobe XD layer: 'BackGround' (component)
                 SizedBox(
-              width: screenWidth / 1.11,
-              height: screenHeight / 1.25,
+              width: blockSizeWidth * 90,
+              height: blockSizeHeight * 80,
               child: XDBackGround(),
             ),
           ),
           //Logo
           Transform.translate(
-            offset: Offset(screenWidth / 2.5, screenHeight / 20),
+            offset: Offset(blockSizeWidth * 41, blockSizeHeight * 2.5),
             child:
                 // Adobe XD layer: 'snack_proud_snack_p…' (shape)
                 Container(
-              width: screenWidth / 10,
-              height: screenHeight / 10,
+              width: blockSizeWidth * 18,
+              height: blockSizeHeight * 10,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/logo.png'),
@@ -48,8 +50,9 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
+
           Transform.translate(
-            offset: Offset(29.0, 209.0),
+            offset: Offset(screenWidth / 20, screenHeight / 6.67),
             child:
                 // Adobe XD layer: '2' (shape)
                 PageLink(
@@ -62,8 +65,8 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                 ),
               ],
               child: Container(
-                width: 125.0,
-                height: 125.0,
+                width: 125,
+                height: 125,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: const AssetImage('assets/images/1.png'),
@@ -74,7 +77,7 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: Offset(29.0, 555.0),
+            offset: Offset(screenWidth / 20, 555.0),
             child:
                 // Adobe XD layer: '3' (shape)
                 PageLink(
