@@ -180,68 +180,74 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
+          //pricing for item 1
           Transform.translate(
-            offset: Offset(170.0, 248.0),
+            offset: Offset(blockSizeWidth * 35, blockSizeHeight * 20),
             child: Text(
-              'Item 1 \n\$xx.xx',
+              'Placeholder item 1 \n\$4.50',
               style: TextStyle(
                 fontFamily: 'Helvetica Neue',
-                fontSize: 20,
+                fontSize: 15,
+                color: const Color(0xff707070),
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          //pricing for item 2
+          Transform.translate(
+            offset: Offset(blockSizeWidth * 35, blockSizeHeight * 35),
+            child: Text(
+              'Placeholder item 2 \n\$3.99',
+              style: TextStyle(
+                fontFamily: 'Helvetica Neue',
+                fontSize: 15,
+                color: const Color(0xff707070),
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          //pricing for item 3
+          Transform.translate(
+            offset: Offset(blockSizeWidth * 35, blockSizeHeight * 50),
+            child: Text(
+              'Placeholder item 3 \n\$5.95',
+              style: TextStyle(
+                fontFamily: 'Helvetica Neue',
+                fontSize: 15,
+                color: const Color(0xff707070),
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          //priicng for item 4
+          Transform.translate(
+            offset: Offset(blockSizeWidth * 35, blockSizeHeight * 65),
+            child: Text(
+              'Placeholder item 4 \n\$2.95',
+              style: TextStyle(
+                fontFamily: 'Helvetica Neue',
+                fontSize: 15,
                 color: const Color(0xff707070),
               ),
               textAlign: TextAlign.left,
             ),
           ),
           Transform.translate(
-            offset: Offset(167.0, 346.0),
+            offset: Offset(blockSizeWidth * 35, blockSizeHeight * 80),
             child: Text(
-              'Item 2 \n\$xx.xx',
+              'Placeholder item 5 \n\$3.50',
               style: TextStyle(
                 fontFamily: 'Helvetica Neue',
-                fontSize: 20,
+                fontSize: 15,
                 color: const Color(0xff707070),
               ),
               textAlign: TextAlign.left,
             ),
           ),
+
+          //buy for item 1, revised with text inside box rather than text AND box
           Transform.translate(
-            offset: Offset(167.0, 421.0),
-            child: Text(
-              'Item 3 \n\$xx.xx',
-              style: TextStyle(
-                fontFamily: 'Helvetica Neue',
-                fontSize: 20,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(167.0, 496.0),
-            child: Text(
-              'Item 4 \n\$xx.xx',
-              style: TextStyle(
-                fontFamily: 'Helvetica Neue',
-                fontSize: 20,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(167.0, 594.0),
-            child: Text(
-              'Item 5 \n\$xx.xx',
-              style: TextStyle(
-                fontFamily: 'Helvetica Neue',
-                fontSize: 20,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(261.0, 256.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 20),
             child: Container(
               width: 74.0,
               height: 32.0,
@@ -249,10 +255,22 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
               ),
+              child: Center(
+                child: Text(
+                  'BUY',
+                  style: TextStyle(
+                    fontFamily: 'Helvetica Neue',
+                    fontSize: 18,
+                    color: const Color(0xff707070),
+                    height: 1,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
           ),
           Transform.translate(
-            offset: Offset(272.0, 257.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 20),
             child: PageLink(
               links: [
                 PageLinkInfo(
@@ -262,20 +280,11 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                   pageBuilder: () => XDiPhoneXXS11Pro3(),
                 ),
               ],
-              child: Text(
-                'BUY',
-                style: TextStyle(
-                  fontFamily: 'Helvetica Neue',
-                  fontSize: 26,
-                  color: const Color(0xff707070),
-                  height: 0.7307692307692307,
-                ),
-                textAlign: TextAlign.left,
-              ),
             ),
           ),
+          //buy for item 2
           Transform.translate(
-            offset: Offset(261.0, 352.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 35),
             child: Container(
               width: 74.0,
               height: 32.0,
@@ -283,10 +292,22 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
               ),
+              child: Center(
+                child: Text(
+                  'BUY',
+                  style: TextStyle(
+                    fontFamily: 'Helvetica Neue',
+                    fontSize: 18,
+                    color: const Color(0xff707070),
+                    height: 1,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
           ),
           Transform.translate(
-            offset: Offset(272.0, 353.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 35),
             child: PageLink(
               links: [
                 PageLinkInfo(
@@ -296,26 +317,30 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                   pageBuilder: () => XDiPhoneXXS11Pro3(),
                 ),
               ],
-              child: Text(
-                'BUY',
-                style: TextStyle(
-                  fontFamily: 'Helvetica Neue',
-                  fontSize: 26,
-                  color: const Color(0xff707070),
-                  height: 0.7307692307692307,
-                ),
-                textAlign: TextAlign.left,
-              ),
             ),
           ),
+
+          //buy for item 3
           Transform.translate(
-            offset: Offset(261.0, 429.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 50),
             child: Container(
               width: 74.0,
               height: 32.0,
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
+              ),
+              child: Center(
+                child: Text(
+                  'BUY',
+                  style: TextStyle(
+                    fontFamily: 'Helvetica Neue',
+                    fontSize: 18,
+                    color: const Color(0xff707070),
+                    height: 1,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
@@ -330,26 +355,29 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                   pageBuilder: () => XDiPhoneXXS11Pro3(),
                 ),
               ],
-              child: Text(
-                'BUY',
-                style: TextStyle(
-                  fontFamily: 'Helvetica Neue',
-                  fontSize: 26,
-                  color: const Color(0xff707070),
-                  height: 0.7307692307692307,
-                ),
-                textAlign: TextAlign.left,
-              ),
             ),
           ),
+          //buy for item 4
           Transform.translate(
-            offset: Offset(261.0, 502.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 65),
             child: Container(
               width: 74.0,
               height: 32.0,
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
+              ),
+              child: Center(
+                child: Text(
+                  'BUY',
+                  style: TextStyle(
+                    fontFamily: 'Helvetica Neue',
+                    fontSize: 18,
+                    color: const Color(0xff707070),
+                    height: 1,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
@@ -364,26 +392,29 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                   pageBuilder: () => XDiPhoneXXS11Pro3(),
                 ),
               ],
-              child: Text(
-                'BUY',
-                style: TextStyle(
-                  fontFamily: 'Helvetica Neue',
-                  fontSize: 26,
-                  color: const Color(0xff707070),
-                  height: 0.7307692307692307,
-                ),
-                textAlign: TextAlign.left,
-              ),
             ),
           ),
+          //buy for item 5
           Transform.translate(
-            offset: Offset(262.0, 598.0),
+            offset: Offset(blockSizeWidth * 75, blockSizeHeight * 80),
             child: Container(
               width: 74.0,
               height: 32.0,
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
+              ),
+              child: Center(
+                child: Text(
+                  'BUY',
+                  style: TextStyle(
+                    fontFamily: 'Helvetica Neue',
+                    fontSize: 18,
+                    color: const Color(0xff707070),
+                    height: 1,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
@@ -398,42 +429,6 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                   pageBuilder: () => XDiPhoneXXS11Pro3(),
                 ),
               ],
-              child: Text(
-                'BUY',
-                style: TextStyle(
-                  fontFamily: 'Helvetica Neue',
-                  fontSize: 26,
-                  color: const Color(0xff707070),
-                  height: 0.7307692307692307,
-                ),
-                textAlign: TextAlign.left,
-              ),
-            ),
-          ),
-
-          Transform.translate(
-            offset: Offset(167.0, 594.0),
-            child: Text(
-              'Item 5 \n\$xx.xx',
-              style: TextStyle(
-                fontFamily: 'Helvetica Neue',
-                fontSize: 20,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(273.0, 599.0),
-            child: Text(
-              'BUY',
-              style: TextStyle(
-                fontFamily: 'Helvetica Neue',
-                fontSize: 26,
-                color: const Color(0xff707070),
-                height: 0.7307692307692307,
-              ),
-              textAlign: TextAlign.left,
             ),
           ),
         ],
