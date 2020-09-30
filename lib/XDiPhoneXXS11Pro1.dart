@@ -50,9 +50,9 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
-
+          //item one
           Transform.translate(
-            offset: Offset(screenWidth / 20, screenHeight / 6.67),
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 15),
             child:
                 // Adobe XD layer: '2' (shape)
                 PageLink(
@@ -76,8 +76,9 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
+          //item 2
           Transform.translate(
-            offset: Offset(screenWidth / 20, 555.0),
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 30),
             child:
                 // Adobe XD layer: '3' (shape)
                 PageLink(
@@ -101,8 +102,9 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
+          //item 3
           Transform.translate(
-            offset: Offset(29.0, 471.0),
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 45),
             child:
                 // Adobe XD layer: '4' (shape)
                 PageLink(
@@ -126,8 +128,9 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
+          //item 4
           Transform.translate(
-            offset: Offset(29.0, 382.0),
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 60),
             child:
                 // Adobe XD layer: '5' (shape)
                 PageLink(
@@ -151,8 +154,9 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
+          //item 5
           Transform.translate(
-            offset: Offset(29.0, 307.0),
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 75),
             child:
                 // Adobe XD layer: 'FBotanika-Protein-B…' (shape)
                 PageLink(
@@ -406,21 +410,7 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               ),
             ),
           ),
-          Transform.translate(
-            offset: Offset(29.0, 555.0),
-            child:
-                // Adobe XD layer: '3' (shape)
-                Container(
-              width: 125.0,
-              height: 125.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/5.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
+
           Transform.translate(
             offset: Offset(167.0, 594.0),
             child: Text(
