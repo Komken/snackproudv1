@@ -3,26 +3,37 @@ import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro1.dart';
 import 'package:adobe_xd/page_link.dart';
 
+MediaQueryData queryData;
+
 class XDiPhoneXXS11Pro2 extends StatelessWidget {
   XDiPhoneXXS11Pro2({
     Key key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    queryData = MediaQuery.of(context);
+    double screenWidth = queryData.size.width;
+    double screenHeight = queryData.size.height;
+    double blockSizeWidth = screenWidth / 100;
+    double blockSizeHeight = screenHeight / 100;
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
+          //background
           Transform.translate(
-            offset: Offset(29.0, 209.0),
-            child: SizedBox(
-              width: 320.0,
-              height: 576.0,
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 15),
+            child:
+                // Adobe XD layer: 'BackGround' (component)
+                SizedBox(
+              width: blockSizeWidth * 90,
+              height: blockSizeHeight * 80,
               child: XDBackGround(),
             ),
           ),
+          //logo
           Transform.translate(
-            offset: Offset(101.0, 52.0),
+            offset: Offset(blockSizeWidth * 41, blockSizeHeight * 2.5),
             child:
                 // Adobe XD layer: 'snack_proud_snack_p…' (shape)
                 PageLink(
@@ -35,8 +46,8 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
                 ),
               ],
               child: Container(
-                width: 173.0,
-                height: 140.0,
+                width: blockSizeWidth * 18,
+                height: blockSizeHeight * 10,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/logo.png'),
@@ -46,13 +57,14 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
               ),
             ),
           ),
+          //image
           Transform.translate(
-            offset: Offset(101.0, 209.0),
+            offset: Offset(blockSizeWidth * 25, blockSizeHeight * 15),
             child:
                 // Adobe XD layer: '2' (shape)
                 Container(
-              width: 192.0,
-              height: 192.0,
+              width: blockSizeWidth * 50,
+              height: blockSizeHeight * 33.33,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/1.png'),
@@ -61,34 +73,29 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
               ),
             ),
           ),
+          //name of item
           Transform.translate(
-            offset: Offset(143.0, 387.0),
+            offset: Offset(blockSizeWidth * 25, blockSizeHeight * 45),
             child: Text(
-              'Item 1 \n\$xx.xx',
+              'Placeholder item 1 \n\$4.50',
               style: TextStyle(
                 fontFamily: 'Helvetica Neue',
-                fontSize: 35,
+                fontSize: 25,
                 color: const Color(0xff707070),
               ),
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
             ),
           ),
+          //description of item box
           Transform.translate(
-            offset: Offset(69.0, 508.0),
+            offset: Offset(blockSizeWidth * 20, blockSizeHeight * 55),
             child: Container(
-              width: 246.0,
-              height: 241.0,
+              width: blockSizeWidth * 60,
+              height: blockSizeHeight * 35,
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
               ),
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(76.0, 516.0),
-            child: SizedBox(
-              width: 232.0,
-              height: 220.0,
               child: Text(
                 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur',
                 style: TextStyle(
@@ -100,37 +107,36 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
               ),
             ),
           ),
+          //back button
           Transform.translate(
-            offset: Offset(43.0, 224.0),
+            offset: Offset(blockSizeWidth * 7, blockSizeHeight * 16),
             child: Container(
-              width: 82.0,
-              height: 32.0,
+              width: blockSizeWidth * 20,
+              height: blockSizeHeight * 5,
               decoration: BoxDecoration(
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
               ),
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(54.0, 225.0),
-            child: PageLink(
-              links: [
-                PageLinkInfo(
-                  transition: LinkTransition.Fade,
-                  ease: Curves.easeOut,
-                  duration: 0.3,
-                  pageBuilder: () => XDiPhoneXXS11Pro1(),
+              child: PageLink(
+                links: [
+                  PageLinkInfo(
+                    transition: LinkTransition.Fade,
+                    ease: Curves.easeOut,
+                    duration: 0.3,
+                    pageBuilder: () => XDiPhoneXXS11Pro1(),
+                  ),
+                ],
+                child: Center(
+                  child: Text(
+                    'Back',
+                    style: TextStyle(
+                      fontFamily: 'Helvetica Neue',
+                      fontSize: 26,
+                      color: const Color(0xff707070),
+                      height: 0.7307692307692307,
+                    ),
+                  ),
                 ),
-              ],
-              child: Text(
-                'Back',
-                style: TextStyle(
-                  fontFamily: 'Helvetica Neue',
-                  fontSize: 26,
-                  color: const Color(0xff707070),
-                  height: 0.7307692307692307,
-                ),
-                textAlign: TextAlign.left,
               ),
             ),
           ),
