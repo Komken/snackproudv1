@@ -165,7 +165,7 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          //Buy Button
+          //Buy Buttn
           Transform.translate(
             offset: Offset(blockSizeWidth * 70, blockSizeHeight * 35),
             child: RaisedButton(
