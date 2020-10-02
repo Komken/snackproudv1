@@ -6,9 +6,10 @@ import 'package:adobe_xd/page_link.dart';
 MediaQueryData queryData;
 
 class XDiPhoneXXS11Pro2 extends StatelessWidget {
-  XDiPhoneXXS11Pro2({
-    Key key,
-  }) : super(key: key);
+  var Item = "No Item Selected";
+  var Imag = "No Image Selected";
+  XDiPhoneXXS11Pro2({this.Item, this.Imag});
+
   @override
   Widget build(BuildContext context) {
     queryData = MediaQuery.of(context);
@@ -67,7 +68,7 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
               height: blockSizeHeight * 33.33,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                  image: AssetImage(Imag),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -77,7 +78,7 @@ class XDiPhoneXXS11Pro2 extends StatelessWidget {
           Transform.translate(
             offset: Offset(blockSizeWidth * 25, blockSizeHeight * 45),
             child: Text(
-              'Placeholder item 1 \n\$4.50',
+              Item,
               style: TextStyle(
                 fontFamily: 'Helvetica Neue',
                 fontSize: 25,

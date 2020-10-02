@@ -5,20 +5,28 @@ import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class XDiPhoneXXS11Pro3 extends StatelessWidget {
-  XDiPhoneXXS11Pro3({
-    Key key,
-  }) : super(key: key);
+  var Item = "No Item Selected";
+  var Imag = "No Item Selected";
+
+  XDiPhoneXXS11Pro3({this.Item, this.Imag});
   @override
   Widget build(BuildContext context) {
+    queryData = MediaQuery.of(context);
+    double screenWidth = queryData.size.width;
+    double screenHeight = queryData.size.height;
+    double blockSizeWidth = screenWidth / 100;
+    double blockSizeHeight = screenHeight / 100;
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
           Transform.translate(
-            offset: Offset(29.0, 209.0),
-            child: SizedBox(
-              width: 320.0,
-              height: 576.0,
+            offset: Offset(blockSizeWidth * 5, blockSizeHeight * 15),
+            child:
+                // Adobe XD layer: 'BackGround' (component)
+                SizedBox(
+              width: blockSizeWidth * 90,
+              height: blockSizeHeight * 80,
               child: XDBackGround(),
             ),
           ),
@@ -31,7 +39,7 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
               height: 140.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/logo.jpg'),
+                  image: const AssetImage('assets/images/logo.png'),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -46,7 +54,7 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
               height: 192.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/1.png'),
+                  image: AssetImage(Imag),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -55,7 +63,7 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
           Transform.translate(
             offset: Offset(192.0, 346.0),
             child: Text(
-              'Item 1 \n\$xx.xx',
+              Item,
               style: TextStyle(
                 fontFamily: 'Helvetica Neue',
                 fontSize: 35,
