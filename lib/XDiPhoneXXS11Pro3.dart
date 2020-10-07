@@ -31,16 +31,26 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: Offset(101.0, 52.0),
+            offset: Offset(blockSizeWidth * 41, blockSizeHeight * 2.5),
             child:
                 // Adobe XD layer: 'snack_proud_snack_p…' (shape)
-                Container(
-              width: 173.0,
-              height: 140.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/logo.png'),
-                  fit: BoxFit.fill,
+                PageLink(
+              links: [
+                PageLinkInfo(
+                  transition: LinkTransition.Fade,
+                  ease: Curves.easeOut,
+                  duration: 0.3,
+                  pageBuilder: () => XDiPhoneXXS11Pro1(),
+                ),
+              ],
+              child: Container(
+                width: blockSizeWidth * 18,
+                height: blockSizeHeight * 10,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/logo.png'),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
@@ -50,8 +60,8 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
             child:
                 // Adobe XD layer: '2' (shape)
                 Container(
-              width: 192.0,
-              height: 192.0,
+              width: blockSizeWidth * 33.33,
+              height: blockSizeHeight * 33.33,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(Imag),
