@@ -6,6 +6,8 @@ import 'package:snackproudv1/constraints.dart';
 var secretKey =
     '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';
 
+var itemID = 'price_1HZxl1CKvfTJxPEeZcwzmbTR';
+
 class Server {
   Future<String> createCheckout() async {
     final auth = 'Bearer ' + secretKey;
@@ -13,7 +15,7 @@ class Server {
       'payment_method_types': ['card'],
       'line_items': [
         {
-          'price': testPriceId,
+          'price': itemID,
           'quantity': 1,
         }
       ],
