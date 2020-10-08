@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snackproudv1/CheckoutPage.dart';
 import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro1.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -99,6 +100,13 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
               child: RaisedButton(
                 onPressed: () async {
                   final sessionId = await Server().createCheckout();
+                  await Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => CheckoutPage(
+                        sessionId: sessionId,
+                      ),
+                    ),
+                  );
                   Scaffold.of(context).showSnackBar(
                     SnackBar(
                       content: Text('sessionID: $sessionId'),
