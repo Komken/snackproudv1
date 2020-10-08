@@ -94,18 +94,19 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
               ),
             ),
           ),
-          Transform.translate(
-            offset: Offset(166.0, 500.0),
-            child: RaisedButton(
-              onPressed: () async {
-                final sessionId = await Server().createCheckout();
-                Scaffold.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('sessionID: $sessionId'),
-                  ),
-                );
-              },
-              child: Text('Pay'),
+          Builder(
+            builder: (context) => Center(
+              child: RaisedButton(
+                onPressed: () async {
+                  final sessionId = await Server().createCheckout();
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('sessionID: $sessionId'),
+                    ),
+                  );
+                },
+                child: Text('Pay'),
+              ),
             ),
           ),
           Transform.translate(
