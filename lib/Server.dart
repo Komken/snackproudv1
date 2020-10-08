@@ -3,9 +3,12 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:snackproudv1/constraints.dart';
 
+var secretKey =
+    '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';
+
 class Server {
   Future<String> createCheckout() async {
-    final auth = 'Basic ' + base64Encode(utf8.encode('$secretKey:'));
+    final auth = 'Bearer ' + secretKey;
     final body = {
       'payment_method_types': ['card'],
       'line_items': [

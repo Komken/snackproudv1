@@ -120,13 +120,13 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Transform.translate(
+          /*  Transform.translate(
             offset: Offset(62.5, 526.5),
             child: SvgPicture.string(
               _svg_wf435h,
               allowDrawingOutsideViewBox: true,
             ),
-          ),
+          ), */
           Transform.translate(
             offset: Offset(119.0, 572.0),
             child: Text(
