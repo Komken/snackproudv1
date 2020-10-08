@@ -3,6 +3,7 @@ import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro1.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'Server.dart';
 
 class XDiPhoneXXS11Pro3 extends StatelessWidget {
   var Item = "No Item Selected";
@@ -94,16 +95,17 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: Offset(166.0, 658.0),
-            child: Text(
-              'Pay',
-              style: TextStyle(
-                fontFamily: 'Helvetica Neue',
-                fontSize: 26,
-                color: const Color(0xff707070),
-                height: 0.7307692307692307,
-              ),
-              textAlign: TextAlign.left,
+            offset: Offset(166.0, 500.0),
+            child: RaisedButton(
+              onPressed: () async {
+                final sessionId = await Server().createCheckout();
+                Scaffold.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('sessionID: $sessionId'),
+                  ),
+                );
+              },
+              child: Text('Pay'),
             ),
           ),
           Transform.translate(

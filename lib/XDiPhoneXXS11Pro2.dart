@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro1.dart';
 import 'package:adobe_xd/page_link.dart';
+import 'CheckoutPage.dart';
 
 MediaQueryData queryData;
 
