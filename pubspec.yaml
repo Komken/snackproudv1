@@ -26,7 +26,8 @@ dependencies:
   dio: ^3.0.8
   webview_flutter: ^1.0.1
   stripe_sdk: ^3.0.1+1
-  
+  flutter_counter: ^1.0.3
+
 
 
   # The following adds the Cupertino Icons font to your application.

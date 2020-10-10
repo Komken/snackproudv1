@@ -61,7 +61,7 @@ const kStripeHtmlPage = '''
 <script src="https://js.stripe.com/v3/"></script>
 <head><title>Stripe checkout</title></head>
 <body>
-Hello Webview
+
 </body>
 </html>
 ''';

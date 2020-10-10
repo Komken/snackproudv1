@@ -9,8 +9,15 @@ import 'Server.dart';
 class XDiPhoneXXS11Pro3 extends StatelessWidget {
   var Item = "No Item Selected";
   var Imag = "No Item Selected";
+  int Item1Q = 0;
+  int Item2Q = 0;
 
-  XDiPhoneXXS11Pro3({this.Item, this.Imag});
+  XDiPhoneXXS11Pro3({
+    this.Item,
+    this.Imag,
+    this.Item1Q,
+    this.Item2Q,
+  });
   @override
   Widget build(BuildContext context) {
     queryData = MediaQuery.of(context);
@@ -107,11 +114,11 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
                       ),
                     ),
                   );
-                  Scaffold.of(context).showSnackBar(
+                  /* Scaffold.of(context).showSnackBar(
                     SnackBar(
                       content: Text('sessionID: $sessionId'),
-                    ),
-                  );
+                    ), 
+                  ); */
                 },
                 child: Text('Pay'),
               ),

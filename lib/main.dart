@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import './XDComponent11.dart';
 import './XDiPhoneXXS11Pro1.dart';
