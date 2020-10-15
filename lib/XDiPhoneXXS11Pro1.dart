@@ -227,11 +227,6 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
                       ),
                     ),
                   );
-                } else {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => XDiPhoneXXS11Pro1()),
-                  );
                 }
                 /* Scaffold.of(context).showSnackBar(
                     SnackBar(
