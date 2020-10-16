@@ -1,8 +1,7 @@
-import 'dart:core';
-
 import 'package:flutter/material.dart';
 import './XDComponent11.dart';
 import './XDiPhoneXXS11Pro1.dart';
+import 'Home.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: XDiPhoneXXS11Pro1(),
+      home: home(),
     );
   }
 }
