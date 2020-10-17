@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Product.dart';
 import 'XDBackGround.dart';
 import 'XDiPhoneXXS11Pro2.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -19,27 +20,23 @@ var SelectedName = "Nothing";
 var SelectedImg = ("assets/images/" + SelectedItem + ".png");
 var SelectedItem = ("Nothing");
 
-int Item1Q = 1; //Changed to Simulate Multiple Items
-int Item2Q = 4; //Changed to Simulate Multiple Items
-int Item3Q = 0;
-int Item4Q = 0;
-int Item5Q = 0;
-int Item6Q = 0;
-int Item7Q = 0;
-int Item8Q = 0;
-int Item9Q = 0;
-int Item10Q = 0;
+var carts = "\$0.0";
+
+double cart = 0;
+
 int _value1 = 0;
 int _value2 = 0;
 
-final List<String> entries = <String>[
-  'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
-  'Snack Proud, Get Seedy Wholefood Bar',
-  'Chocolate Not Chocolate, Choc Truffles, 30g',
-  'Botanika Bars, Lemon Cheese Cake, 40g'
+final List<Product> products = <Product>[
+  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Snack Proud, Protein Bar – Choc Berry Fudge ,40g', 4, '1.png', 0),
+  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Snack Proud, Get Seedy Wholefood Bar', 45, '2.png', 0),
+  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Chocolate Not Chocolate, Choc Truffles, 30g', 4, '3.png', 0),
+  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Botanika Bars, Lemon Cheese Cake, 40g', 4, '4.png', 0),
 ];
-
-final List<String> itemID = <String>['1', '2', '3', '4', '5', '6', '7'];
 
 MediaQueryData queryData;
 
@@ -102,7 +99,7 @@ class home extends StatelessWidget {
 
           ListView.separated(
             padding: const EdgeInsets.fromLTRB(10, 100, 0, 0),
-            itemCount: entries.length,
+            itemCount: products.length,
             itemBuilder: (BuildContext context, int index) {
               return Row(children: [
                 Container(
@@ -118,17 +115,52 @@ class home extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/${itemID[index]}.png'),
+                                'assets/images/${products[index].icon}'),
                             fit: BoxFit.fill,
                           ),
                           shape: BoxShape.circle,
                         ),
                       ),
-                      Container(
-                        height: 50,
-                        width: 200,
-                        child: Text(' ${entries[index]}'),
+                      Column(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 200,
+                            child: Text(' ${products[index].label}'),
+                          ),
+                          Container(
+                            height: 20,
+                            width: 200,
+                            child: Text('\$ ${products[index].price}'),
+                          )
+                        ],
                       ),
+                      DropdownButton(
+                          value: products[index].quantity,
+                          items: [
+                            DropdownMenuItem(child: Text("0"), value: 0),
+                            DropdownMenuItem(child: Text("1"), value: 1),
+                            DropdownMenuItem(child: Text("2"), value: 2),
+                            DropdownMenuItem(child: Text("3"), value: 3),
+                            DropdownMenuItem(child: Text("4"), value: 4),
+                            DropdownMenuItem(child: Text("5"), value: 5),
+                            DropdownMenuItem(child: Text("6"), value: 6),
+                            DropdownMenuItem(child: Text("7"), value: 7),
+                            DropdownMenuItem(child: Text("8"), value: 8),
+                            DropdownMenuItem(child: Text("9"), value: 9),
+                            DropdownMenuItem(child: Text("10"), value: 10)
+                          ],
+                          onChanged: (value) {
+                            products[index].quantity = value;
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => home()),
+                            );
+                            for (Product product in products) {
+                              cart =
+                                  (cart + (product.price * product.quantity));
+                              carts = ('\$' + cart.toString());
+                            }
+                          }),
                     ]))
               ]);
             },
@@ -151,7 +183,7 @@ class home extends StatelessWidget {
             offset: Offset(blockSizeWidth * 12.5, blockSizeHeight * 88.5),
             child: Container(
                 child: Text(
-              '\$xx.xx',
+              '${carts}',
               style: TextStyle(fontSize: 18, color: Colors.white),
             )),
           ),
@@ -161,7 +193,7 @@ class home extends StatelessWidget {
               child: FlatButton(
                 onPressed: () async {
                   // if (Item1Q > 0 || Item2Q > 0) {
-                  final sessionId = await Server().createCheckout();
+                  final sessionId = await Server().createCheckout(products);
 
                   Navigator.of(context).push(
                     MaterialPageRoute(

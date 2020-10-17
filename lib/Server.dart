@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:snackproudv1/constraints.dart';
 import 'Home.dart';
+import 'Product.dart';
 
 var secretKey =
     'sk_test_51HZZIiGEyFEWKkD6o7Plb6hm8yfaQ8qlhx72ri7t3TRZZUrKZL87Byiswl4ft75OcavhvjZj9IsO3jufkzypoAn600iQBZpios';
@@ -11,22 +12,22 @@ var itemID = 'price_1Ha0N4GEyFEWKkD6ZThJu5td';
 var item2ID = 'price_1HaKq6GEyFEWKkD65pACMH8h';
 
 class Server {
-  Future<String> createCheckout() async {
+  Future<String> createCheckout(List<Product> products) async {
+    var checkout = [];
+
+    for (Product product in products) {
+      if (product.quantity > 0) {
+        checkout.add({
+          'price': product.stripeId,
+          'quantity': product.quantity,
+        });
+      }
+    }
+
     final auth = 'Bearer ' + secretKey;
     final body = {
       'payment_method_types': ['card'],
-      'line_items': [
-        if (Item1Q > 0)
-          {
-            'price': itemID,
-            'quantity': Item1Q,
-          },
-        if (Item2Q > 0)
-          {
-            'price': item2ID,
-            'quantity': Item2Q,
-          }
-      ],
+      'line_items': checkout,
       'mode': 'payment',
       'success_url': 'https://success.com/{CHECKOUT_SESSION_ID}',
       'cancel_url': 'https://cancel.com/',

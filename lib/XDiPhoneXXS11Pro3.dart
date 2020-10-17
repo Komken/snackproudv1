@@ -4,6 +4,7 @@ import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro1.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'Home.dart';
 import 'Server.dart';
 
 class XDiPhoneXXS11Pro3 extends StatelessWidget {
@@ -20,7 +21,7 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    queryData = MediaQuery.of(context);
+    /*queryData = MediaQuery.of(context);
     double screenWidth = queryData.size.width;
     double screenHeight = queryData.size.height;
     double blockSizeWidth = screenWidth / 100;
@@ -106,7 +107,7 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
             builder: (context) => Center(
               child: RaisedButton(
                 onPressed: () async {
-                  final sessionId = await Server().createCheckout();
+                  final sessionId = await Server().createCheckout(products);
                   await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => CheckoutPage(
@@ -191,9 +192,10 @@ class XDiPhoneXXS11Pro3 extends StatelessWidget {
           ),
         ],
       ),
-    );
+    );*/
   }
 }
 
-const String _svg_wf435h =
+/*const String _svg_wf435h =
     '<svg viewBox="62.5 526.5 251.0 1.0" ><path transform="translate(62.5, 526.5)" d="M 0 1 L 251 0" fill="none" stroke="#707070" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+*/

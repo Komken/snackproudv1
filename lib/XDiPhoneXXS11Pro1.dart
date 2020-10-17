@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_counter/flutter_counter.dart';
 import 'package:snackproudv1/CheckoutPage.dart';
 
+import 'Home.dart';
 import 'Server.dart';
 
 var SelectedName = "Nothing";
@@ -218,7 +219,7 @@ class XDiPhoneXXS11Pro1 extends StatelessWidget {
             child: RaisedButton(
               onPressed: () async {
                 if (Item1Q > 0 || Item2Q > 0) {
-                  final sessionId = await Server().createCheckout();
+                  final sessionId = await Server().createCheckout(products);
 
                   Navigator.of(context).push(
                     MaterialPageRoute(
