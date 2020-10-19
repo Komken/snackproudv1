@@ -6,7 +6,7 @@ import 'package:js/js.dart';
 import 'package:snackproudv1/constants.dart';
 import 'Server.dart';
 import 'package:snackproudv1/constraints.dart';
-import 'XDiPhoneXXS11Pro1.dart';
+import 'Home.dart';
 import 'Server.dart';
 
 var itemID = 'price_1Ha0N4GEyFEWKkD6ZThJu5td';

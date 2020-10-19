@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './XDComponent11.dart';
-import './XDiPhoneXXS11Pro1.dart';
+import 'package:snackproudv1/ErrorPage.dart';
+import 'package:snackproudv1/Success.dart';
 import 'Home.dart';
 
 void main() {

@@ -29,7 +29,7 @@ class Server {
       'payment_method_types': ['card'],
       'line_items': checkout,
       'mode': 'payment',
-      'success_url': 'https://success.com/{CHECKOUT_SESSION_ID}',
+      'success_url': 'https://success.com/',
       'cancel_url': 'https://cancel.com/',
     };
 

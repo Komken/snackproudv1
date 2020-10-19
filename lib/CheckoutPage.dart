@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:snackproudv1/ErrorPage.dart';
+import 'package:snackproudv1/Success.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:stripe_sdk/stripe_sdk.dart';
 
@@ -32,6 +34,23 @@ class _CheckoutPageState extends State<CheckoutPage> {
             if (url == initialUrl) {
               _redirectToStripe();
             }
+            navigationDelegate:
+            (NavigationRequest request) {
+              if (request.url.contains('http://success.com')) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => Success(),
+                  ),
+                );
+              } else if (request.url.startsWith('http://cancel.com')) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ErrorPage(),
+                  ),
+                );
+              }
+              return NavigationDecision.navigate;
+            };
           }),
     );
   }

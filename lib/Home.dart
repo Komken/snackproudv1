@@ -1,40 +1,36 @@
 import 'package:flutter/material.dart';
 import 'Product.dart';
-import 'XDBackGround.dart';
-import 'XDiPhoneXXS11Pro2.dart';
-import 'package:adobe_xd/page_link.dart';
-import 'XDiPhoneXXS11Pro3.dart';
+import 'Page2.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter/material.dart';
 import 'package:snackproudv1/CheckoutPage.dart';
-import './XDBackGround.dart';
-import './XDiPhoneXXS11Pro1.dart';
-import 'package:adobe_xd/page_link.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'Server.dart';
-import 'values.dart';
 import 'package:flutter/gestures.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 var SelectedName = "Nothing";
 var SelectedImg = ("assets/images/" + SelectedItem + ".png");
 var SelectedItem = ("Nothing");
+var SelectedImgDis = "Nothing";
 
 var carts = "\$0.0";
 
 double cart = 0;
 
 final List<Product> products = <Product>[
+  new Product(
+      'price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
+      4,
+      '1.png',
+      0,
+      '1B.png'),
   new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Snack Proud, Protein Bar – Choc Berry Fudge ,40g', 4, '1.png', 0),
+      'Snack Proud, Get Seedy Wholefood Bar', 45, '2.png', 0, '2B.png'),
   new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Snack Proud, Get Seedy Wholefood Bar', 45, '2.png', 0),
+      'Chocolate Not Chocolate, Choc Truffles, 30g', 4, '3.png', 0, '3B.png'),
   new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Chocolate Not Chocolate, Choc Truffles, 30g', 4, '3.png', 0),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Botanika Bars, Lemon Cheese Cake, 40g', 4, '4.png', 0),
+      'Botanika Bars, Lemon Cheese Cake, 40g', 4, '4.png', 0, '4B.png'),
   new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td', 'Lemon Cheese Cake, 40g', 4,
-      '5.png', 0),
+      '5.png', 0, '5B.png'),
 ];
 
 MediaQueryData queryData;
@@ -72,16 +68,31 @@ class _homeState extends State<home> {
                         borderRadius: new BorderRadius.circular(10),
                       ),
                       child: Row(children: [
-                        Container(
-                          height: 120.0,
-                          width: 120.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/${products[index].icon}'),
-                              fit: BoxFit.fill,
-                            ),
-                            shape: BoxShape.circle,
+                        GestureDetector(
+                          onTap: () {
+                            SelectedName = products[index].label;
+
+                            SelectedImg =
+                                ('assets/images/${products[index].icon}');
+                            SelectedImgDis =
+                                ('assets/images/${products[index].description}');
+                            print(SelectedName);
+                            print(SelectedImgDis);
+
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => Page2(
+                                      Item: SelectedName,
+                                      Imag: SelectedImg,
+                                      Dis: SelectedImgDis)),
+                            );
+                          }, // handle your image tap here
+                          child: Image.asset(
+                            'assets/images/${products[index].icon}',
+                            fit:
+                                BoxFit.cover, // this is the solution for border
+                            width: 120.0,
+                            height: 120.0,
                           ),
                         ),
                         Column(
@@ -171,7 +182,7 @@ class _homeState extends State<home> {
                           'Snacking at Westpac Level 24',
                           style: TextStyle(color: Colors.black, fontSize: 18),
                         ),
-                        padding: const EdgeInsets.fromLTRB(10, 40, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(150, 40, 0, 0),
                       ),
                     ),
 // yellow bar
@@ -236,12 +247,6 @@ class _homeState extends State<home> {
                           ),
                         ),
                       );
-                      //    }
-                      /* Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('sessionID: $sessionId'),
-                    ), 
-                  ); */
                     }
                   }
                 },
@@ -251,30 +256,6 @@ class _homeState extends State<home> {
                 ),
               ),
             ),
-
-            //Buy Buttn
-            /*    Builder(
-            builder: (context) => Center(
-              child: RaisedButton(
-                onPressed: () async {
-                  final sessionId = await Server().createCheckout();
-                  await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => CheckoutPage(
-                        sessionId: sessionId,
-                      ),
-                    ),
-                  ); 
-                  /* Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('sessionID: $sessionId'),
-                    ), 
-                  ); */
-                },
-                child: Text('Pay'),
-              ),
-            ), 
-          ), */
           )
         ],
       ),
