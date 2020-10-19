@@ -1,25 +1,17 @@
 @JS()
 library stripe;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:js/js.dart';
-import 'package:snackproudv1/constants.dart';
-import 'Server.dart';
-import 'package:snackproudv1/constraints.dart';
-import 'XDiPhoneXXS11Pro1.dart';
-import 'Server.dart';
 
-var itemID = 'price_1Ha0N4GEyFEWKkD6ZThJu5td';
-const apiKey =
-    'pk_test_51HZZIiGEyFEWKkD6E6mEDdpG3ohbqIWKxfUACDGOOzPkYQgf6FdmbE6a7CP59xeXzHMWhPUq0o1J9C2CVrkxb1BZ00CxjsjLsk';
+import 'constants.dart';
 
 void redirectToCheckout(BuildContext _) async {
   final stripe = Stripe(apiKey);
-
-  Stripe(apiKey).redirectToCheckout(CheckoutOptions(
+  stripe.redirectToCheckout(CheckoutOptions(
     lineItems: [
       LineItem(
-        price: itemID,
+        price: testItemPrice1,
         quantity: 1,
       )
     ],
@@ -33,7 +25,7 @@ void redirectToCheckout(BuildContext _) async {
 class Stripe {
   external Stripe(String key);
 
-  external redirectToCheckout(CheckoutOptions options);
+  external redirectToCheckout(CheckoutOptions checkoutOptions);
 }
 
 @JS()

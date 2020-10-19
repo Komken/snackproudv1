@@ -3,5 +3,10 @@ const apiKey =
 
 const testPriceId = 'price_1Ha0N4GEyFEWKkD6ZThJu5td';
 const secretKey =
-    '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';
+    'sk_test_51HZZIiGEyFEWKkD6o7Plb6hm8yfaQ8qlhx72ri7t3TRZZUrKZL87Byiswl4ft75OcavhvjZj9IsO3jufkzypoAn600iQBZpios';
 const itemID = 'prod_IAL3J8NjR7BzrN';
+
+//Items
+const testItemPrice1 = 'price_1Ha0N4GEyFEWKkD6ZThJu5td';
+
+const testItemPrice2 = 'price_1HaKq6GEyFEWKkD65pACMH8h';

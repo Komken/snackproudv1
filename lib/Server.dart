@@ -1,14 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:snackproudv1/constraints.dart';
+import 'package:snackproudv1/constants.dart';
 import 'Home.dart';
-
-var secretKey =
-    'sk_test_51HZZIiGEyFEWKkD6o7Plb6hm8yfaQ8qlhx72ri7t3TRZZUrKZL87Byiswl4ft75OcavhvjZj9IsO3jufkzypoAn600iQBZpios';
-
-var itemID = 'price_1Ha0N4GEyFEWKkD6ZThJu5td';
-var item2ID = 'price_1HaKq6GEyFEWKkD65pACMH8h';
 
 class Server {
   Future<String> createCheckout() async {
@@ -18,12 +12,12 @@ class Server {
       'line_items': [
         if (Item1Q > 0)
           {
-            'price': itemID,
+            'price': testItemPrice1,
             'quantity': Item1Q,
           },
         if (Item2Q > 0)
           {
-            'price': item2ID,
+            'price': testItemPrice2,
             'quantity': Item2Q,
           }
       ],

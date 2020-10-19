@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:snackproudv1/CheckoutWeb.dart';
 import 'XDBackGround.dart';
 import 'XDiPhoneXXS11Pro2.dart';
 import 'package:adobe_xd/page_link.dart';
 import 'XDiPhoneXXS11Pro3.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:snackproudv1/CheckoutPage.dart';
+//import 'package:snackproudv1/CheckoutPage.dart';
+
 import './XDBackGround.dart';
 import './XDiPhoneXXS11Pro1.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -159,24 +161,7 @@ class home extends StatelessWidget {
             offset: Offset(blockSizeWidth * 67, blockSizeHeight * 86.75),
             child: Container(
               child: FlatButton(
-                onPressed: () async {
-                  // if (Item1Q > 0 || Item2Q > 0) {
-                  final sessionId = await Server().createCheckout();
-
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => CheckoutPage(
-                        sessionId: sessionId,
-                      ),
-                    ),
-                  );
-                  //    }
-                  /* Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('sessionID: $sessionId'),
-                    ), 
-                  ); */
-                },
+                onPressed: () => redirectToCheckout(context),
                 child: Text(
                   'Pay Now',
                   style: TextStyle(fontSize: 18, color: Colors.white),

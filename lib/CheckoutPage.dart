@@ -28,7 +28,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (controller) => _controller = controller,
           onPageFinished: (String url) {
-            //<---- add this
             if (url == initialUrl) {
               _redirectToStripe();
             }
