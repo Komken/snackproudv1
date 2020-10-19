@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:snackproudv1/Home.dart';
-import 'package:adobe_xd/page_link.dart';
-import 'CheckoutPage.dart';
 
 MediaQueryData queryData;
 
