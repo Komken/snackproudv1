@@ -24,9 +24,6 @@ var carts = "\$0.0";
 
 double cart = 0;
 
-int _value1 = 0;
-int _value2 = 0;
-
 final List<Product> products = <Product>[
   new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
       'Snack Proud, Protein Bar – Choc Berry Fudge ,40g', 4, '1.png', 0),
@@ -42,10 +39,14 @@ final List<Product> products = <Product>[
 
 MediaQueryData queryData;
 
-class home extends StatelessWidget {
-  home({
-    Key key,
-  }) : super(key: key);
+class home extends StatefulWidget {
+  const home({Key key}) : super(key: key);
+
+  @override
+  _homeState createState() => _homeState();
+}
+
+class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     queryData = MediaQuery.of(context);
@@ -58,59 +59,6 @@ class home extends StatelessWidget {
       backgroundColor: Colors.grey[300],
       body: Stack(
         children: <Widget>[
-          //Background
-          Stack(
-            children: [
-              Transform.translate(
-                offset: Offset(blockSizeWidth * 0, blockSizeHeight * 0),
-                child: Container(
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  width: blockSizeWidth * 99,
-                  height: blockSizeHeight * 12.5,
-                ),
-              ),
-              Transform.translate(
-                offset: Offset(blockSizeWidth * 2, blockSizeHeight * 4),
-                //Logo
-                child: Container(
-                  width: blockSizeWidth * 17,
-                  height: blockSizeHeight * 6,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/logo.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              //Top Container
-
-              Center(
-                child: Container(
-                  color: Color(0xFFFFFF),
-                  child: Text(
-                    'Snacking at Westpac Level 24',
-                    style: TextStyle(color: Colors.black, fontSize: 18),
-                  ),
-                  alignment: Alignment(1.0, -0.9),
-                ),
-              ),
-// yellow bar
-              Transform.translate(
-                offset: Offset(blockSizeWidth * 0.5, blockSizeHeight * 11),
-                child: Container(
-                  decoration: new BoxDecoration(
-                    color: Colors.yellow,
-                  ),
-                  width: blockSizeWidth * 99,
-                  height: blockSizeHeight * 2.5,
-                ),
-              ),
-            ],
-          ),
-
           Stack(children: [
             ListView.separated(
               padding: const EdgeInsets.fromLTRB(10, 100, 0, 100),
@@ -166,16 +114,16 @@ class home extends StatelessWidget {
                               DropdownMenuItem(child: Text("10"), value: 10)
                             ],
                             onChanged: (value) {
-                              products[index].quantity = value;
-                              Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => home()),
-                              );
-                              cart = 0;
-                              for (Product product in products) {
-                                cart =
-                                    (cart + (product.price * product.quantity));
-                                carts = ('\$' + cart.toString());
-                              }
+                              setState(() {
+                                products[index].quantity = value;
+
+                                cart = 0;
+                                for (Product product in products) {
+                                  cart = (cart +
+                                      (product.price * product.quantity));
+                                  carts = ('\$' + cart.toString());
+                                }
+                              });
                             }),
                       ]))
                 ]);
@@ -184,7 +132,65 @@ class home extends StatelessWidget {
                   const Divider(),
             ),
           ]),
+          Column(
+            children: [
+              Container(
+                //height: screenHeight * 0.2,
+                child: Stack(
+                  children: [
+                    Transform.translate(
+                      offset: Offset(blockSizeWidth * 0, blockSizeHeight * 0),
+                      child: Container(
+                        decoration: new BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        width: blockSizeWidth * 99,
+                        height: blockSizeHeight * 12.5,
+                      ),
+                    ),
+                    Transform.translate(
+                      offset: Offset(blockSizeWidth * 2, blockSizeHeight * 4),
+                      //Logo
+                      child: Container(
+                        width: blockSizeWidth * 17,
+                        height: blockSizeHeight * 6,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/logo.png'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                    ),
+                    //Top Container
 
+                    Center(
+                      child: Container(
+                        color: Color(0xFFFFFF),
+                        child: Text(
+                          'Snacking at Westpac Level 24',
+                          style: TextStyle(color: Colors.black, fontSize: 18),
+                        ),
+                        padding: const EdgeInsets.fromLTRB(10, 40, 0, 0),
+                      ),
+                    ),
+// yellow bar
+                    Transform.translate(
+                      offset:
+                          Offset(blockSizeWidth * 0.5, blockSizeHeight * 11),
+                      child: Container(
+                        decoration: new BoxDecoration(
+                          color: Colors.yellow,
+                        ),
+                        width: blockSizeWidth * 99,
+                        height: blockSizeHeight * 2.5,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Transform.translate(
             offset: Offset(blockSizeWidth * 0, blockSizeHeight * 93),
             child: Container(
@@ -195,7 +201,6 @@ class home extends StatelessWidget {
               height: blockSizeHeight * 12.5,
             ),
           ),
-
           Transform.translate(
             offset: Offset(blockSizeWidth * 5, blockSizeHeight * 89),
             child: Container(
