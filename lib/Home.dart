@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:snackproudv1/constants.dart';
 import 'Product.dart';
 import 'Page2.dart';
 import 'package:flutter/widgets.dart';
-import 'package:snackproudv1/CheckoutPage.dart';
 import 'Server.dart';
 import 'package:flutter/gestures.dart';
+import 'stripe_checkout.dart';
 
 var SelectedName = "Nothing";
 var SelectedImg = ("assets/images/" + SelectedItem + ".png");
@@ -16,21 +17,16 @@ var carts = "\$0.0";
 double cart = 0;
 
 final List<Product> products = <Product>[
+  new Product(testItemPrice, 'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
+      2, '1.png', 0, '1B.png'),
+  new Product(testItemPrice1, 'Snack Proud, Get Seedy Wholefood Bar', 2,
+      '2.png', 0, '2B.png'),
+  new Product(testItemPrice2, 'Chocolate Not Chocolate, Choc Truffles, 30g', 4,
+      '3.png', 0, '3B.png'),
+  new Product(testItemPrice3, 'Botanika Bars, Lemon Cheese Cake, 40g', 4,
+      '4.png', 0, '4B.png'),
   new Product(
-      'price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
-      4,
-      '1.png',
-      0,
-      '1B.png'),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Snack Proud, Get Seedy Wholefood Bar', 45, '2.png', 0, '2B.png'),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Chocolate Not Chocolate, Choc Truffles, 30g', 4, '3.png', 0, '3B.png'),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Botanika Bars, Lemon Cheese Cake, 40g', 4, '4.png', 0, '4B.png'),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td', 'Lemon Cheese Cake, 40g', 4,
-      '5.png', 0, '5B.png'),
+      testItemPrice4, 'Lemon Cheese Cake, 40g', 4, '5.png', 0, '5B.png'),
 ];
 
 MediaQueryData queryData;
@@ -235,21 +231,7 @@ class _homeState extends State<home> {
             offset: Offset(blockSizeWidth * 67, blockSizeHeight * 90.75),
             child: Container(
               child: FlatButton(
-                onPressed: () async {
-                  for (Product product in products) {
-                    if (product.quantity > 0) {
-                      final sessionId = await Server().createCheckout(products);
-
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => CheckoutPage(
-                            sessionId: sessionId,
-                          ),
-                        ),
-                      );
-                    }
-                  }
-                },
+                onPressed: () => redirectToCheckout(context, products),
                 child: Text(
                   'Pay Now',
                   style: TextStyle(fontSize: 18, color: Colors.white),

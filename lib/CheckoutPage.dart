@@ -1,13 +1,28 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:snackproudv1/ErrorPage.dart';
 import 'package:snackproudv1/Success.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:stripe_sdk/stripe_sdk.dart';
-
+import 'Product.dart';
+import 'Server.dart';
 import 'constants.dart';
+
+void redirectToCheckout(BuildContext context, List<Product> products) async {
+  for (Product product in products) {
+    if (product.quantity > 0) {
+      final sessionId = await Server().createCheckout(products);
+
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => CheckoutPage(
+            sessionId: sessionId,
+          ),
+        ),
+      );
+    }
+  }
+}
 
 class CheckoutPage extends StatefulWidget {
   final String sessionId;
@@ -59,7 +74,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
       'data:text/html;base64,${base64Encode(Utf8Encoder().convert(kStripeHtmlPage))}';
 
   void _redirectToStripe() {
-    //<--- prepare the JS in a normal string
     final redirectToCheckoutJs = '''
     var stripe = Stripe(\'$apiKey\');
     
@@ -69,8 +83,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     result.error.message = 'Error'
     });
     ''';
-    _controller.evaluateJavascript(
-        redirectToCheckoutJs); //<--- call the JS function on controller
+    _controller.evaluateJavascript(redirectToCheckoutJs);
   }
 }
 
