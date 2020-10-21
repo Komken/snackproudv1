@@ -17,16 +17,21 @@ var carts = "\$0.0";
 double cart = 0;
 
 final List<Product> products = <Product>[
-  new Product(testItemPrice, 'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
-      2, '1.png', 0, '1B.png'),
-  new Product(testItemPrice1, 'Snack Proud, Get Seedy Wholefood Bar', 2,
-      '2.png', 0, '2B.png'),
-  new Product(testItemPrice2, 'Chocolate Not Chocolate, Choc Truffles, 30g', 4,
-      '3.png', 0, '3B.png'),
-  new Product(testItemPrice3, 'Botanika Bars, Lemon Cheese Cake, 40g', 4,
-      '4.png', 0, '4B.png'),
   new Product(
-      testItemPrice4, 'Lemon Cheese Cake, 40g', 4, '5.png', 0, '5B.png'),
+      'price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
+      2,
+      '1.png',
+      0,
+      '1B.png'),
+  new Product('price_1HaKq6GEyFEWKkD65pACMH8h',
+      'Snack Proud, Get Seedy Wholefood Bar', 2, '2.png', 0, '2B.png'),
+  new Product('price_1HeaVDGEyFEWKkD61ddGPOEj',
+      'Chocolate Not Chocolate, Choc Truffles, 30g', 4, '3.png', 0, '3B.png'),
+  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
+      'Botanika Bars, Lemon Cheese Cake, 40g', 4, '4.png', 0, '4B.png'),
+  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td', 'Lemon Cheese Cake, 40g', 4,
+      '5.png', 0, '5B.png'),
 ];
 
 MediaQueryData queryData;

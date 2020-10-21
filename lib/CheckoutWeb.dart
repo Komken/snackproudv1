@@ -3,7 +3,7 @@ library stripe;
 
 import 'package:flutter/cupertino.dart';
 import 'package:js/js.dart';
-
+import 'Home.dart';
 import 'Product.dart';
 import 'constants.dart';
 

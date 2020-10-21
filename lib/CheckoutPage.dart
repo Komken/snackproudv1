@@ -7,6 +7,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'Product.dart';
 import 'Server.dart';
 import 'constants.dart';
+import 'Home.dart';
 
 void redirectToCheckout(BuildContext context, List<Product> products) async {
   for (Product product in products) {
@@ -49,23 +50,23 @@ class _CheckoutPageState extends State<CheckoutPage> {
             if (url == initialUrl) {
               _redirectToStripe();
             }
-            navigationDelegate:
-            (NavigationRequest request) {
-              if (request.url.contains('http://success.com')) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => Success(),
-                  ),
-                );
-              } else if (request.url.startsWith('http://cancel.com')) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => ErrorPage(),
-                  ),
-                );
-              }
-              return NavigationDecision.navigate;
-            };
+          },
+          navigationDelegate: (NavigationRequest request) {
+            if (request.url.startsWith('http://localhost:8080/#/success')) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => Success(),
+                ),
+              );
+            } else if (request.url
+                .startsWith('http://localhost:8080/#/cancel')) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => ErrorPage(),
+                ),
+              );
+            }
+            return NavigationDecision.navigate;
           }),
     );
   }
