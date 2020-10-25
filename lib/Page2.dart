@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:snackproudv1/Home.dart';
+import 'Home.dart';
 
 MediaQueryData queryData;
 
 class Page2 extends StatelessWidget {
-  var Item = "No Item Selected";
+  var Brand = "No Item Selected";
+  var Flavour = "No Item Selected";
+  var Label = "No Item Selected";
+
   var Imag = "No Image Selected";
   var Dis = "No Image Selected";
-  Page2({this.Item, this.Imag, this.Dis});
+  Page2({this.Label, this.Imag, this.Dis, this.Brand, this.Flavour});
 
   @override
   Widget build(BuildContext context) {
@@ -77,42 +81,76 @@ class Page2 extends StatelessWidget {
           ),
         ],
       ),
-      Transform.translate(
-        offset: Offset(blockSizeWidth * 25, blockSizeHeight * 15),
-        child: Container(
-          width: blockSizeWidth * 50,
-          height: blockSizeHeight * 33.33,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(Imag),
-              fit: BoxFit.fill,
-            ),
+      Column(
+        children: [
+          SizedBox(
+            height: screenHeight * 0.15,
           ),
-        ),
-      ),
-      Center(
-        child: Text(
-          Item,
-          style: TextStyle(
-            fontFamily: 'Helvetica Neue',
-            fontSize: 25,
-            color: const Color(0xff707070),
+          Row(
+            children: [
+              SizedBox(
+                width: screenWidth * 0.175,
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: blockSizeWidth * 50,
+                    height: blockSizeHeight * 33.33,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(Imag),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      Brand,
+                      style: TextStyle(
+                        fontFamily: 'Helvetica Neue',
+                        fontSize: 25,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      Label,
+                      style: TextStyle(
+                        fontFamily: 'Helvetica Neue',
+                        fontSize: 25,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      Flavour,
+                      style: TextStyle(
+                        fontFamily: 'Helvetica Neue',
+                        fontSize: 25,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    width: blockSizeWidth * 60,
+                    height: blockSizeHeight * 35.33,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(Dis),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-      Transform.translate(
-        offset: Offset(blockSizeWidth * 20, blockSizeHeight * 60),
-        child: Container(
-          width: blockSizeWidth * 60,
-          height: blockSizeHeight * 35.33,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(Dis),
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
+        ],
       ),
       Transform.translate(
         offset: Offset(blockSizeWidth * 5, blockSizeHeight * 15),

@@ -8,8 +8,10 @@ import 'package:flutter/gestures.dart';
 import 'stripe_checkout.dart';
 
 var SelectedName = "Nothing";
-var SelectedImg = ("assets/images/" + SelectedItem + ".png");
-var SelectedItem = ("Nothing");
+var SelectedImg = ("Nothing");
+var SelectedBrand = ("Nothing");
+var SelectedLabel = ("Nothing");
+var SelectedFlavour = ("Nothing");
 var SelectedImgDis = "Nothing";
 
 var carts = "\$0.0";
@@ -18,20 +20,79 @@ double cart = 0;
 
 final List<Product> products = <Product>[
   new Product(
-      'price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Snack Proud, Protein Bar – Choc Berry Fudge ,40g',
-      2,
-      '1.png',
+      'price_1Hfc82GoCUNUUbkPK7tpUkWe',
+      'Dipped and Dusted Nuts',
+      'Chocolate Raspberry',
+      '',
+      2.85,
+      'sp_toisolate-9.png',
       0,
-      '1B.png'),
-  new Product('price_1HaKq6GEyFEWKkD65pACMH8h',
-      'Snack Proud, Get Seedy Wholefood Bar', 2, '2.png', 0, '2B.png'),
-  new Product('price_1HeaVDGEyFEWKkD61ddGPOEj',
-      'Chocolate Not Chocolate, Choc Truffles, 30g', 4, '3.png', 0, '3B.png'),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td',
-      'Botanika Bars, Lemon Cheese Cake, 40g', 4, '4.png', 0, '4B.png'),
-  new Product('price_1Ha0N4GEyFEWKkD6ZThJu5td', 'Lemon Cheese Cake, 40g', 4,
-      '5.png', 0, '5B.png'),
+      'sp_toisolate-9description.png'),
+  new Product(
+      'price_1Hfc8KGoCUNUUbkPYjXvFPED',
+      'AmazeBalls',
+      'Sweet Chilli & Sour Cream',
+      '',
+      3.95,
+      'sp_toisolate-10.png',
+      0,
+      'sp_toisolate-10description.png'),
+  new Product(
+      'price_1Hfc8pGoCUNUUbkPC1xDlTf6',
+      'Happy Snack Chickpeas',
+      'Chocolate Raspberry',
+      '',
+      1.5,
+      'sp_toisolate-13.png',
+      0,
+      'sp_toisolate-13description.png'),
+  new Product(
+      'price_1Hfc9DGoCUNUUbkPzJCIJKnZ',
+      'Luv Sum',
+      'Protein Ball ',
+      'Peanut Cacao',
+      2.75,
+      'sp_toisolate-18.png',
+      0,
+      'sp_toisolate-18description.png'),
+  new Product(
+      'price_1Hfc9SGoCUNUUbkPZANZG3JW',
+      'DJ&A',
+      'Vege Chips',
+      'Beetroot',
+      3.75,
+      'sp_toisolate-20.png',
+      0,
+      'sp_toisolate-20description.png'),
+  new Product(
+      'price_1Hfc9gGoCUNUUbkP7AJKBI0v',
+      'Piranha Popcorn',
+      'Sweet and Salty',
+      '',
+      1.95,
+      'sp_toisolate-22.png',
+      0,
+      'sp_toisolate-22description.png'),
+  new Product(
+      'price_1Hfc9tGoCUNUUbkPuDVCO9tR',
+      'Snack Proud',
+      'Crunchy Edamame',
+      '',
+      2.25,
+      'sp_toisolate-33.png',
+      0,
+      'sp_toisolate-33description.png'),
+  new Product('price_1HfcA7GoCUNUUbkPyphIaVA3', 'Snack Proud', 'Peas n Pop', '',
+      2.25, 'sp_toisolate-34.png', 0, 'sp_toisolate-34description.png'),
+  new Product(
+      'price_1HfcAPGoCUNUUbkPYlhs8vZP',
+      'Chocolate Not Chocolate',
+      'Choc Mint Truffles',
+      '',
+      2.5,
+      'sp_toisolate-35.png',
+      0,
+      'sp_toisolate-35description.png'),
 ];
 
 MediaQueryData queryData;
@@ -68,76 +129,123 @@ class _homeState extends State<home> {
                         color: Colors.white,
                         borderRadius: new BorderRadius.circular(10),
                       ),
-                      child: Row(children: [
-                        GestureDetector(
-                          onTap: () {
-                            SelectedName = products[index].label;
+                      child: Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              SelectedBrand = products[index].brand;
+                              SelectedFlavour = products[index].flavour;
+                              SelectedLabel = products[index].label;
 
-                            SelectedImg =
-                                ('assets/images/${products[index].icon}');
-                            SelectedImgDis =
-                                ('assets/images/${products[index].description}');
-                            print(SelectedName);
-                            print(SelectedImgDis);
+                              SelectedImg =
+                                  ('assets/images/${products[index].icon}');
+                              SelectedImgDis =
+                                  ('assets/images/${products[index].description}');
 
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) => Page2(
-                                      Item: SelectedName,
-                                      Imag: SelectedImg,
-                                      Dis: SelectedImgDis)),
-                            );
-                          }, // handle your image tap here
-                          child: Image.asset(
-                            'assets/images/${products[index].icon}',
-                            fit:
-                                BoxFit.cover, // this is the solution for border
-                            width: 120.0,
-                            height: 120.0,
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 200,
-                              child: Text(' ${products[index].label}'),
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => Page2(
+                                        Brand: SelectedBrand,
+                                        Label: SelectedLabel,
+                                        Flavour: SelectedFlavour,
+                                        Imag: SelectedImg,
+                                        Dis: SelectedImgDis)),
+                              );
+                            }, // handle your image tap here
+                            child: Image.asset(
+                              'assets/images/${products[index].icon}',
+                              fit: BoxFit
+                                  .cover, // this is the solution for border
+                              width: 190.0,
+                              height: 190.0,
                             ),
-                            Container(
-                              height: 20,
-                              width: 200,
-                              child: Text('\$ ${products[index].price}'),
-                            )
-                          ],
-                        ),
-                        DropdownButton(
-                            value: products[index].quantity,
-                            items: [
-                              DropdownMenuItem(child: Text("0"), value: 0),
-                              DropdownMenuItem(child: Text("1"), value: 1),
-                              DropdownMenuItem(child: Text("2"), value: 2),
-                              DropdownMenuItem(child: Text("3"), value: 3),
-                              DropdownMenuItem(child: Text("4"), value: 4),
-                              DropdownMenuItem(child: Text("5"), value: 5),
-                              DropdownMenuItem(child: Text("6"), value: 6),
-                              DropdownMenuItem(child: Text("7"), value: 7),
-                              DropdownMenuItem(child: Text("8"), value: 8),
-                              DropdownMenuItem(child: Text("9"), value: 9),
-                              DropdownMenuItem(child: Text("10"), value: 10)
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 200,
+                                child: Text(' ${products[index].brand}'),
+                              ),
+                              Container(
+                                height: 20,
+                                width: 200,
+                                child: Text(' ${products[index].label}'),
+                              ),
+                              Container(
+                                height: 20,
+                                width: 200,
+                                child: Text(' ${products[index].flavour}'),
+                              ),
+                              Container(
+                                height: 20,
+                                width: 200,
+                                child: Text('\$ ${products[index].price}'),
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 50,
+                                    ),
+                                    GestureDetector(
+                                        onTap: () {
+                                          if (products[index].quantity > 0) {
+                                            setState(() {
+                                              products[index].quantity =
+                                                  products[index].quantity - 1;
+                                              cart =
+                                                  cart - products[index].price;
+                                              carts = ('\$' +
+                                                  cart.toStringAsFixed(2));
+                                            });
+                                          }
+                                        },
+                                        child: Text(
+                                          "-",
+                                          style: TextStyle(
+                                            fontSize: 30,
+                                          ),
+                                        )),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text('${products[index].quantity}',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    new GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            products[index].quantity =
+                                                products[index].quantity + 1;
+                                            cart = cart + products[index].price;
+                                            carts = ('\$' +
+                                                cart.toStringAsFixed(2));
+                                          });
+                                        },
+                                        child: Text("+",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                            ))),
+                                  ],
+                                ),
+                              )
                             ],
-                            onChanged: (value) {
-                              setState(() {
-                                products[index].quantity = value;
-
-                                cart = 0;
-                                for (Product product in products) {
-                                  cart = (cart +
-                                      (product.price * product.quantity));
-                                  carts = ('\$' + cart.toString());
-                                }
-                              });
-                            }),
-                      ]))
+                          ),
+                          Column(children: [
+                            SizedBox(
+                              height: 50,
+                            ),
+                          ])
+                        ],
+                      ))
                 ]);
               },
               separatorBuilder: (BuildContext context, int index) =>
@@ -156,7 +264,7 @@ class _homeState extends State<home> {
                         decoration: new BoxDecoration(
                           color: Colors.white,
                         ),
-                        width: blockSizeWidth * 99,
+                        width: blockSizeWidth * 100,
                         height: blockSizeHeight * 12.5,
                       ),
                     ),
@@ -174,18 +282,28 @@ class _homeState extends State<home> {
                         ),
                       ),
                     ),
-                    //Top Container
-
-                    Center(
-                      child: Container(
-                        color: Color(0xFFFFFF),
-                        child: Text(
-                          'Snacking at Westpac Level 24',
-                          style: TextStyle(color: Colors.black, fontSize: 18),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: screenHeight * 0.075,
                         ),
-                        padding: const EdgeInsets.fromLTRB(150, 40, 0, 0),
-                      ),
-                    ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: screenWidth * 0.5,
+                            ),
+                            Container(
+                              child: Text(
+                                'Snacking at SnackProud',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 18),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ), //Top Container
+
 // yellow bar
                     Transform.translate(
                       offset:
@@ -194,7 +312,7 @@ class _homeState extends State<home> {
                         decoration: new BoxDecoration(
                           color: Colors.yellow,
                         ),
-                        width: blockSizeWidth * 99,
+                        width: blockSizeWidth * 100,
                         height: blockSizeHeight * 2.5,
                       ),
                     ),
